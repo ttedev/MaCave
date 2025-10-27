@@ -24,9 +24,9 @@ import java.io.IOException;
 public class ScanService {
 
   private final String PROMPT ="Tu es un assistant sommelier. À partir du texte d'une étiquette de vin ci-dessous, extrait uniquement:\n"
-      + "chateau (nom du domaine ou château), appellation (AOC/AOP), annee (millésime 4 chiffres).\n"
+      + "chateau (nom du domaine ou château), appellation (AOC/AOP), annee (millésime 4 chiffres) pas un string  et fait une estimation du prix\n"
       + "Réponds STRICTEMENT par un JSON compact sans commentaires, format:\n"
-      + "{{\"chateau\":\"...\",\"appellation\":\"...\",\"annee\":\"...\"}}\n"
+      + "{{\"chateau\":\"...\",\"appellation\":\"...\",\"annee\":\"...\",\"prix\":\"...\"}}\n"
       + "Si une info introuvable mets chaîne vide. Les deux chant texte doivent commencer par une majuscule puis en minuscule il peut y avoir des espaces\n";
 
   @Autowired
@@ -77,6 +77,7 @@ public class ScanService {
     //TODO change it
     String reponse = chatClient.call(PROMPT+"\nTexte de l'étiquette:\n"+extractedText);
     //String reponse = "{\"chateau\":\"Château Margaux\",\"appellation\":\"Margaux AOC\",\"annee\":\"2015\",\"prix\":\"250.00\",\"couleur\":\"ROUGE\",\"taille\":\"750ml\"}";
+    log.info("ChatGPT Response: {}", reponse);
     ObjectMapper objectMapper = new  ObjectMapper();
     return objectMapper.readValue(reponse,WineDto.class);
 
