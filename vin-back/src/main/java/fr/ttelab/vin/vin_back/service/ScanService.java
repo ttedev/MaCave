@@ -28,7 +28,8 @@ public class ScanService {
       + "Réponds STRICTEMENT par un JSON compact sans commentaires, format:\n"
       + "{{\"chateau\":\"...\",\"appellation\":\"...\",\"annee\":\"...\",\"prix\":\"...\"}}\n"
       + "Si une info introuvable mets chaîne vide. Les deux chant texte doivent commencer par une majuscule puis en minuscule il peut y avoir des espaces\n"
-      + "il peux y avoir des faute d'OCR  example Vetrus pour Petrus. annee et prix doivent etre des nombre sans double quotes dasn le JSON\n";
+      + "il peux y avoir des faute d'OCR  example Vetrus pour Petrus. annee et prix doivent etre des nombre sans double quotes dasn le JSON\n"
+      + "s'il y a plusieurs année prend la dernière";
 
   @Autowired
   private CloudVisionTemplate cloudVisionTemplate;
