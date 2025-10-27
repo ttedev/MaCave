@@ -4,6 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import { caveService } from '../services/api';
 import { CaveDto } from '../types';
 import CaveEditForm from '../components/CaveEditForm';
+import SiteHeader from '../components/SiteHeader';
 
 const CavesPage: React.FC = () => {
   const [caves, setCaves] = useState<CaveDto[]>([]);
@@ -12,7 +13,8 @@ const CavesPage: React.FC = () => {
   const [showCreate, setShowCreate] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [createError, setCreateError] = useState<string | null>(null);
-  const { user, logout } = useAuth();
+  // Récupérer l'auth pour SiteHeader si besoin plus tard
+  useAuth();
 
   useEffect(() => {
     loadCaves();
@@ -63,17 +65,7 @@ const CavesPage: React.FC = () => {
 
   return (
     <div className="caves-page">
-      <header className="header">
-        <div className="header-content">
-          <h1>Ma Cave à Vin</h1>
-          <div className="user-info">
-            <span>Bonjour, {user?.firstName || user?.username}</span>
-            <button onClick={logout} className="logout-btn">
-              Déconnexion
-            </button>
-          </div>
-        </div>
-      </header>
+      <SiteHeader />
 
       <main className="main-content">
         <div className="caves-header">

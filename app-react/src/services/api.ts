@@ -149,7 +149,9 @@ export const authService = {
 // Cave services
 export const caveService = {
   async getCaves(): Promise<CaveDto[]> {
-    return apiCall<CaveDto[]>('/caves');
+    const data = await apiCall<CaveDto[]>('/caves');
+    // Normaliser les réponses vides (undefined ou non tableau) en tableau vide
+    return Array.isArray(data) ? data : [];
   },
 
   async getCaveById(id: number): Promise<CaveDto> {

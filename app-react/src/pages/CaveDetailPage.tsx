@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
+import SiteHeader from '../components/SiteHeader';
 import { caveService, wineService, casierService } from '../services/api';
 import { CaveDto, WineDto, CasierDto } from '../types';
 import WineCard from '../components/WineCard';
@@ -8,6 +9,7 @@ import CaveEditForm from '../components/CaveEditForm';
 
 const CaveDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
   const [cave, setCave] = useState<CaveDto | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
@@ -534,38 +536,42 @@ const CaveDetailPage: React.FC = () => {
 
   return (
     <div className="cave-detail-page">
-      <header className="page-header">
-        <div className="header-content">
+      {/* Bandeau rouge de navigation global */}
+      <SiteHeader/>
+
+
+
+      <main className="caves-content">
+        <div className="caves-header">
           <div className="header-left">
-            <Link to="/caves" className="back-btn">
-              ← Retour aux caves
-            </Link>
+
+            <h2>{cave.nom}
+
+          </h2>
+      
+           <p className="cave-description">{cave.description}</p>
+
           </div>
-          
-          <div className="header-center">
-            <h1 className="cave-title">
-              <span className="cave-title-text">{cave.nom}</span>
-              <button
+          <div className="header-right">  <button
+            className="btn-primary"
+            onClick={() => navigate('/caves')}
+            type="button"
+          >
+            Retour
+          </button>
+                    <button
+            className="btn-primary"
                 onClick={handleEditCave}
-                className="cave-title-action"
                 disabled={isUpdating}
                 title="Modifier les paramètres de la cave"
                 aria-label="Modifier la cave"
-              >
-                ⚙️
-              </button>
-            </h1>
-            
-            <p className="cave-description">{cave.description}</p>
-          </div>
-          
-          <div className="header-right">
+          >
+            Modifier
+          </button></div>
 
-          </div>
+                  
         </div>
-      </header>
 
-      <main className="cave-content">
         {cave.casiers && cave.casiers.length > 0 ? (
           <div className="casiers-container">
             {cave.casiers
@@ -694,6 +700,7 @@ const CaveDetailPage: React.FC = () => {
             </div>
           </div>
         ) : (
+          <div className="casiers-container">
           <div className="empty-cave">
             <h3>Cette cave est vide</h3>
             <p>Commencez par ajouter des casiers à votre cave.</p>
@@ -704,6 +711,8 @@ const CaveDetailPage: React.FC = () => {
               </span>
             </button>
           </div>
+          </div>
+          
         )}
       </main>
       {isReorderMode && (

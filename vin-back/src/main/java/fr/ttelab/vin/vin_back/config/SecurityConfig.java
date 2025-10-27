@@ -31,6 +31,9 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 @EnableWebSecurity
 public class SecurityConfig {
 
+  @Value("${PRODUCTION_MODE:false}")
+  private boolean productionMode;
+
   @Autowired
   private JwtUtil jwtUtil;
   @Autowired
@@ -91,7 +94,7 @@ public class SecurityConfig {
             .successHandler((request, response, authentication) -> {
               OidcUser user = (OidcUser) authentication.getPrincipal();
               String token = jwtUtil.generateToken(user.getEmail());
-              String redirectUrl = "/login?token=" + token;
+            String redirectUrl =(productionMode?"":"http://localhost:5173")+ "/login?token=" + token;
               log.debug("OAuth2 success redirect -> {}", redirectUrl);
               response.sendRedirect(redirectUrl);
             })
