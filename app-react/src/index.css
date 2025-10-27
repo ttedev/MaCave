@@ -1379,6 +1379,14 @@ body {
   pointer-events: none;
 }
 
+.scan-actions{
+  justify-content: center;
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
 .scan-spinner {
   width: 46px;
   height: 46px;

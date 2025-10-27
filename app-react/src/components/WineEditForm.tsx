@@ -125,7 +125,7 @@ const WineEditForm: React.FC<WineEditFormProps> = ({
         </div>
       )}
       <h3>{mode === 'create' ? 'Ajouter un nouveau vin' : 'Modifier le vin'}</h3>
-      <div className="scan-actions" style={{ marginBottom: '1rem', display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+      <div className="scan-actions">
         <button
           type="button"
           onClick={triggerScan}
