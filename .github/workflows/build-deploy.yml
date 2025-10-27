@@ -78,7 +78,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script: |
             cd ${{ secrets.COMMAND_PATH }}
-            mv app.jar app.jar.old
-            mv ${{ secrets.DEPLOY_PATH }}/vin-back/target/${{ env.JAR_NAME }} app.jar
+            mv jar/app.jar jar/app.jar.old
+            mv ${{ secrets.DEPLOY_PATH }}/vin-back/target/${{ env.JAR_NAME }} jar/app.jar
             echo "Restarting service..."
             ${{ secrets.REMOTE_RESTART_CMD }}
