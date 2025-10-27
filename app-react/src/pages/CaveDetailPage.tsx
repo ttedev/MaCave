@@ -429,6 +429,35 @@ const CaveDetailPage: React.FC = () => {
     }
   };
 
+
+   // Fonction pour supprimer un casier vide
+  const handleDeleteCave = async (cave: CaveDto) => {
+    if (!cave.id) {
+      alert('Erreur: ID du casier manquant');
+      return;
+    }
+
+ 
+
+    const confirmed = window.confirm(
+      `⚠️ Êtes-vous sûr de vouloir supprimer la cave ${cave.nom} ?\n\nCette action est irréversible !`
+    );
+    
+    if (confirmed) {
+      try {
+        await caveService.deleteCave(cave.id);
+        
+        console.log('✅ cave supprimée avec succès');
+        navigate('/caves');
+      } catch (error) {
+        console.error('❌ Erreur lors de la suppression de la cave:', error);
+        alert('❌ Erreur lors de la suppression de la cave: ' + (error instanceof Error ? error.message : 'Erreur inconnue'));
+      } finally {
+      }
+    }
+  };
+
+
   // Fonction pour ouvrir l'édition de la cave
   const handleEditCave = () => {
     setEditingCave(true);
@@ -457,6 +486,8 @@ const CaveDetailPage: React.FC = () => {
       setIsUpdating(false);
     }
   };
+
+  
 
   // Fonction pour annuler l'édition de la cave
   const handleCancelEditCave = () => {
@@ -534,6 +565,20 @@ const CaveDetailPage: React.FC = () => {
     );
   }
 
+  const calculatePrice = (cave: CaveDto) => {
+    let totalPrice = 0;
+    cave.casiers?.forEach(casier => {
+      casier.lignes?.forEach(ligne => {
+        ligne.bouteilles?.forEach(bouteille => {
+          if (bouteille.prix) {
+            totalPrice += bouteille.prix;
+          }
+        });
+      });
+    });
+    return totalPrice;
+  }
+
   return (
     <div className="cave-detail-page">
       {/* Bandeau rouge de navigation global */}
@@ -550,14 +595,16 @@ const CaveDetailPage: React.FC = () => {
           </h2>
       
            <p className="cave-description">{cave.description}</p>
-
+           {calculatePrice(cave) > 0 &&
+          <p  className="cave-description"> Cave estimée à {new Intl.NumberFormat("fr-FR").format(calculatePrice(cave))} €</p>
+          }
           </div>
           <div className="header-right">  <button
             className="btn-primary"
             onClick={() => navigate('/caves')}
             type="button"
           >
-            Retour
+            Mes caves
           </button>
                     <button
             className="btn-primary"
@@ -801,6 +848,7 @@ const CaveDetailPage: React.FC = () => {
             <CaveEditForm
               cave={cave}
               onSave={handleSaveCave}
+              deleteCave={handleDeleteCave}
               onCancel={handleCancelEditCave}
               isLoading={isUpdating}
             />

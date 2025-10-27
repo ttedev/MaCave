@@ -105,6 +105,11 @@ const LoginPage: React.FC = () => {
             type="submit"
             className="login-button"
             disabled={isLoading}
+            style={
+              {
+                borderRadius:'20px'
+              }
+            }
           >
             {isLoading ? 'Connexion...' : 'Se connecter'}
           </button>
@@ -118,12 +123,14 @@ const LoginPage: React.FC = () => {
                 window.location.href = '/oauth2/authorization/google';
               }}
               style={{
-                display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center',
-                gap: '0.5rem',
+                display: 'flex',
+                justifyContent: 'space-between',
+                gap: '1rem',
+                width: '100%',
                 backgroundColor: '#fff',
                 color: '#444',
+                borderRadius: '20px',
                 border: '1px solid #dadce0',
                 boxShadow: '0 1px 2px rgba(0,0,0,0.1)',
                 fontWeight: 500

@@ -4,6 +4,7 @@ import { CaveDto } from '../types';
 interface CaveEditFormProps {
   cave: CaveDto;
   onSave: (cave: CaveDto) => void;
+  deleteCave?: (cave: CaveDto) => void;
   onCancel: () => void;
   isLoading?: boolean;
 }
@@ -11,6 +12,7 @@ interface CaveEditFormProps {
 const CaveEditForm: React.FC<CaveEditFormProps> = ({ 
   cave, 
   onSave, 
+  deleteCave,
   onCancel, 
   isLoading = false 
 }) => {
@@ -77,6 +79,11 @@ const CaveEditForm: React.FC<CaveEditFormProps> = ({
       setErrors(prev => ({ ...prev, [name]: '' }));
     }
   };
+
+  const handleRemoveCave = () => {
+    // Appeler onSave avec une cave vide pour indiquer la suppression
+    if (deleteCave) deleteCave(cave);
+  }
 
   const handleCapaciteChange = (index: number, value: string) => {
     const newCapacite = value === '' ? 0 : Number(value);
@@ -243,6 +250,18 @@ const CaveEditForm: React.FC<CaveEditFormProps> = ({
               {isLoading ? 'Sauvegarde...' : 'Sauvegarder'}
             </span>
           </button>
+          {(!!deleteCave) && (
+          <button
+            type="button"
+            className="wine-btn wine-btn-delete"
+            onClick={handleRemoveCave}
+          >
+            <span className="btn-icon">🗑️</span>
+            <span className="btn-text">
+              Supprimer
+            </span>
+          </button>
+          )}
         </div>
       </form>
     </div>
