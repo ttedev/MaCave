@@ -1,0 +1,1327 @@
+/* CSS Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f5f5f5;
+}
+
+/* Common Components */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.error-message {
+  background-color: #fee;
+  border: 1px solid #fcc;
+  color: #c33;
+  padding: 1rem;
+  border-radius: 4px;
+  margin: 1rem 0;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: #722f37;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #5d252a;
+}
+
+.btn-secondary {
+  background-color: #fff;
+  color: #722f37;
+  border: 2px solid #722f37;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+  background-color: #722f37;
+  color: white;
+}
+
+/* Header */
+.header {
+  background-color: #722f37;
+  color: white;
+  padding: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.header-left {
+  flex: 0 0 auto;
+}
+
+.header-center {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.header-center h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #722f37;
+  font-weight: 600;
+}
+
+/* Cave title with inline action button */
+.cave-title { display: flex; align-items: center; gap: 0.5rem; }
+.cave-title-text { line-height: 1.1; }
+.cave-title-action {
+  background: none;
+  border: none;
+  padding: 0 .4rem;
+  font-size: 1.15rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #999;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: color .2s ease, background-color .2s ease;
+}
+.cave-title-action:hover:not(:disabled) {
+  color: #722f37;
+  background: rgba(114,47,55,0.08);
+}
+.cave-title-action:active:not(:disabled) { color: #5d252a; }
+.cave-title-action:disabled { opacity: .4; cursor: not-allowed; }
+
+/* Reduce motion impact inside shaking context */
+.reorder-shake .cave-title-action { animation: none; }
+
+.cave-description {
+  margin: 0;
+  color: #666;
+  font-style: italic;
+  font-size: 1.1rem;
+  max-width: 600px;
+}
+
+.header-right {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.header h1 {
+  font-size: 1.8rem;
+  font-weight: 300;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logout-btn {
+  background: none;
+  border: 1px solid white;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.logout-btn:hover {
+  background-color: white;
+  color: #722f37;
+}
+
+/* Main Content */
+.main-content {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+/* Login Page */
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #722f37 0%, #9d4751 100%);
+}
+
+.login-container {
+  background: white;
+  padding: 3rem;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.login-header h1 {
+  color: #722f37;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.login-header p {
+  color: #666;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 500;
+  color: #333;
+}
+
+.form-group input {
+  padding: 0.75rem;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #722f37;
+}
+
+.login-button {
+  padding: 1rem;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
+
+.login-footer {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #eee;
+}
+
+.login-footer a {
+  color: #722f37;
+  text-decoration: none;
+}
+
+.login-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Caves Page */
+.caves-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.caves-header h2 {
+  color: #722f37;
+  font-size: 1.8rem;
+}
+
+.caves-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.cave-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.cave-card:hover {
+  transform: translateY(-2px);
+}
+
+.cave-card h3 {
+  color: #722f37;
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.cave-card p {
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.cave-stats {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.cave-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.empty-state p {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+/* Cave Detail Page */
+.cave-detail-page {
+  min-height: 100vh;
+}
+
+.page-header {
+  background: white;
+  padding: 2rem 0;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 2rem;
+}
+
+.back-btn {
+  color: #722f37;
+  text-decoration: none;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.back-btn:hover {
+  text-decoration: underline;
+}
+
+.cave-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.casiers-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+  width: 100%;
+}
+
+.casier-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 90%;
+  max-width: 1400px;
+}
+
+.casier-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.casier-header h3 {
+  color: #722f37;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.casier-delete-btn {
+  font-size: 0.85rem;
+  padding: 0.4rem 0.8rem;
+}
+
+.casier-delete-btn .btn-icon {
+  font-size: 0.9rem;
+}
+
+.cave-actions {
+  width: 100%;
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.casier-visual {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  width: 100%;
+}
+
+.ligne-horizontal {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.bouteille {
+  width: 140px;
+  height: 140px;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  text-align: center;
+  position: relative;
+  padding: 0.5rem;
+}
+
+.bouteille.occupied {
+  border-color: #722f37;
+  background: linear-gradient(145deg, #f8f4f4, #fff);
+  box-shadow: 0 2px 8px rgba(114, 47, 55, 0.15);
+}
+
+.bouteille.occupied:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(114, 47, 55, 0.25);
+  cursor: pointer;
+}
+
+.bouteille.empty {
+  border-color: #ddd;
+  background: linear-gradient(145deg, #f9f9f9, #fff);
+  border-style: dashed;
+}
+
+.bouteille.empty:hover {
+  border-color: #722f37;
+  background-color: #fff;
+  border-style: solid;
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.bouteille.empty:active {
+  transform: scale(0.98);
+}
+
+.empty-slot {
+  font-size: 2.5rem;
+  color: #bbb;
+  font-weight: 300;
+}
+
+.wine-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.3rem;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+}
+
+.wine-appellation {
+  font-weight: 700;
+  color: #722f37;
+  font-size: 0.8rem;
+  max-width: 100%;
+  line-height: 1.1;
+  text-align: center;
+  margin-bottom: 0.15rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.wine-chateau {
+  font-weight: 400;
+  color: #555;
+  font-size: 0.7rem;
+  max-width: 100%;
+  line-height: 1.1;
+  text-align: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.wine-year {
+  color: #888;
+  font-size: 0.6rem;
+  font-weight: 500;
+}
+
+.wine-couleur {
+  color: #999;
+  font-size: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.empty-cave {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.empty-cave h3 {
+  color: #722f37;
+  margin-bottom: 1rem;
+}
+
+.empty-cave p {
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+/* Wine Modal */
+.wine-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 2rem;
+}
+
+.wine-modal-content {
+  position: relative;
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.wine-modal-large {
+  max-width: 700px;
+}
+
+.wine-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #999;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
+.wine-modal-close:hover {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+/* Wine Card Styles */
+.wine-card {
+  border: none;
+  border-radius: 8px;
+  padding: 1.5rem;
+  background: linear-gradient(145deg, #f9f9f9, #fff);
+  box-shadow: none;
+}
+
+.wine-card .wine-info h3 {
+  color: #722f37;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.wine-card .wine-appellation {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.wine-card .wine-details {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.wine-card .wine-details span {
+  background: #f0f0f0;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.wine-card .wine-year {
+  background: #e8f4fd;
+  color: #2c5aa0;
+}
+
+.wine-card .wine-price {
+  background: #e8f5e8;
+  color: #2d5a2d;
+}
+
+.wine-card .wine-size {
+  background: #fff2e8;
+  color: #b8860b;
+}
+
+.wine-card .wine-color {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.wine-card .wine-rouge {
+  background: #ffe8e8;
+  color: #c41e3a;
+}
+
+.wine-card .wine-blanc {
+  background: #fffef7;
+  color: #daa520;
+}
+
+.wine-card .wine-rose {
+  background: #ffe8f0;
+  color: #ff69b4;
+}
+
+.wine-card .wine-petillant {
+  background: #f0f8ff;
+  color: #4169e1;
+}
+
+.wine-card .wine-champagne {
+  background: #fff8dc;
+  color: #ffd700;
+}
+
+/* Wine Actions */
+.wine-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+  justify-content: center;
+}
+
+.wine-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 120px;
+  justify-content: center;
+}
+
+.wine-btn-edit {
+  background: linear-gradient(145deg, #4CAF50, #45a049);
+  color: white;
+  box-shadow: 0 2px 4px rgba(76, 175, 80, 0.3);
+}
+
+.wine-btn-edit:hover {
+  background: linear-gradient(145deg, #45a049, #3d8b40);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(76, 175, 80, 0.4);
+}
+
+.wine-btn-delete {
+  background: linear-gradient(145deg, #f44336, #da190b);
+  color: white;
+  box-shadow: 0 2px 4px rgba(244, 67, 54, 0.3);
+}
+
+.wine-btn-delete:hover {
+  background: linear-gradient(145deg, #da190b, #c62828);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(244, 67, 54, 0.4);
+}
+
+.wine-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.btn-icon {
+  font-size: 1.1rem;
+}
+
+.btn-text {
+  font-size: 0.9rem;
+  letter-spacing: 0.3px;
+}
+
+/* Wine Edit Form */
+.wine-edit-form h3 {
+  color: #722f37;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group.full-width {
+  grid-column: span 2;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select {
+  padding: 0.75rem;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  background: white;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #722f37;
+  box-shadow: 0 0 0 3px rgba(114, 47, 55, 0.1);
+}
+
+.form-group input.error,
+.form-group select.error {
+  border-color: #f44336;
+  background-color: #ffeaea;
+}
+
+.form-group input:disabled,
+.form-group select:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.error-text {
+  color: #f44336;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+
+.wine-btn-cancel {
+  background: linear-gradient(145deg, #666, #555);
+  color: white;
+  box-shadow: 0 2px 4px rgba(102, 102, 102, 0.3);
+}
+
+.wine-btn-cancel:hover {
+  background: linear-gradient(145deg, #555, #444);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(102, 102, 102, 0.4);
+}
+
+.wine-btn-save {
+  background: linear-gradient(145deg, #2196F3, #1976D2);
+  color: white;
+  box-shadow: 0 2px 4px rgba(33, 150, 243, 0.3);
+}
+
+.wine-btn-save:hover:not(:disabled) {
+  background: linear-gradient(145deg, #1976D2, #1565C0);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(33, 150, 243, 0.4);
+}
+
+.wine-btn-save:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.wine-btn-add-casier {
+  background: white;
+  color: #722f37;
+  border: 2px solid #722f37;
+  box-shadow: 0 2px 4px rgba(114, 47, 55, 0.2);
+  padding: 0.6rem 1.2rem;
+  font-size: 0.85rem;
+  min-width: 100px;
+}
+
+.wine-btn-add-casier:hover:not(:disabled) {
+  background: #722f37;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(114, 47, 55, 0.3);
+}
+
+.wine-btn-add-casier:disabled {
+  background: #f5f5f5;
+  color: #ccc;
+  border-color: #ddd;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.wine-btn-edit-cave {
+  background: white;
+  color: #722f37;
+  border: 2px solid #722f37;
+  box-shadow: 0 2px 4px rgba(114, 47, 55, 0.2);
+  padding: 0.6rem 1.2rem;
+  font-size: 0.85rem;
+  min-width: 100px;
+}
+
+.wine-btn-edit-cave:hover:not(:disabled) {
+  background: #722f37;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(114, 47, 55, 0.3);
+}
+
+.wine-btn-edit-cave:disabled {
+  background: #f5f5f5;
+  color: #ccc;
+  border-color: #ddd;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.wine-btn.icon-only {
+  min-width: auto;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wine-btn.icon-only .btn-icon {
+  font-size: 1.3rem;
+}
+
+.wine-btn.icon-only .btn-text {
+  display: none;
+}
+
+/* Cave Edit Form Styles */
+.cave-edit-form {
+  max-width: 600px;
+  width: 100%;
+}
+
+.cave-edit-form h3 {
+  color: #722f37;
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+.cave-edit-form .form-grid {
+  display: grid;
+  gap: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.cave-edit-form .form-group textarea {
+  min-height: 80px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.cave-edit-form .help-text {
+  display: block;
+  color: #666;
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+}
+
+.cave-info {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.info-item:last-child {
+  margin-bottom: 0;
+}
+
+.info-label {
+  font-weight: 600;
+  color: #495057;
+}
+
+.info-value {
+  color: #722f37;
+  font-weight: 600;
+}
+
+.capacites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.capacite-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.capacite-item label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #495057;
+}
+
+.capacite-item input {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.capacite-item input.error {
+  border-color: #dc3545;
+}
+
+.capacite-item .error-text {
+  font-size: 0.75rem;
+  color: #dc3545;
+}
+
+/* Autocomplete Styles */
+.autocomplete-container {
+  position: relative;
+  width: 100%;
+}
+
+.autocomplete-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 2px solid #722f37;
+  border-top: none;
+  border-radius: 0 0 6px 6px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.autocomplete-item {
+  padding: 0.75rem;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.2s ease;
+}
+
+.autocomplete-item:last-child {
+  border-bottom: none;
+}
+
+.autocomplete-item:hover,
+.autocomplete-item.highlighted {
+  background-color: #f8f4f4;
+  color: #722f37;
+}
+
+.autocomplete-item.highlighted {
+  background-color: #722f37;
+  color: white;
+}
+
+/* Ajustement pour les inputs avec autocomplétion */
+.autocomplete-container input:focus {
+  border-radius: 6px 6px 0 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .caves-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .header-content {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .header-left,
+  .header-center,
+  .header-right {
+    width: 100%;
+  }
+
+  .header-center h1 {
+    font-size: 1.6rem;
+  }
+
+  .cave-description {
+    font-size: 1rem;
+  }
+  
+  .caves-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .ligne-horizontal {
+    gap: 0.8rem;
+  }
+  
+  .bouteille {
+    width: 115px;
+    height: 115px;
+  }
+  
+  .casier-section {
+    padding: 1rem;
+    width: 95%;
+  }
+  
+  .casiers-container {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Mobile: fixed-size tiles with horizontal scroll when overflow */
+  .cave-content { padding: 0 0.1rem; margin: 0; max-width: 100%; }
+  .casier-section { padding: 0; width: 100%; }
+  .casier-visual { width: 100%; gap: 0.5rem; align-items: stretch; }
+  .casiers-container { gap: 2rem; width: 100%; }
+
+  .ligne-horizontal {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+    gap: 0.15rem;
+    padding: 0.25rem 0.25rem;
+  }
+  .ligne-horizontal::-webkit-scrollbar { display: none; }
+
+  .bouteille {
+    flex: 0 0 65px;
+    width: 70px;
+    height: 78px;
+    max-width: 65px;
+    padding: 0.0rem;
+  }
+
+  .wine-info { gap: 0.15rem; padding: 0.1rem; }
+  .wine-appellation { font-size: 0.7rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .wine-chateau { font-size: 0.6rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .wine-year { font-size: 0.55rem; }
+  .wine-couleur { font-size: 0.5rem; }
+  
+  .empty-slot {
+    font-size: 2rem;
+  }
+  
+  .wine-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .wine-btn {
+    width: 100%;
+    padding: 1rem;
+  }
+  
+  .wine-modal-content {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+  
+  .wine-modal-large {
+    max-width: 95%;
+  }
+  
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .autocomplete-dropdown {
+    max-height: 150px;
+  }
+  
+  .autocomplete-item {
+    padding: 1rem 0.75rem;
+    font-size: 1rem;
+  }
+}
+
+/* Reorder mode shaking animation */
+@keyframes bottle-shake {
+  0% { transform: translate(0,0) rotate(-1deg); }
+  25% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 1px) rotate(-1deg); }
+  75% { transform: translate(1px, 0) rotate(1deg); }
+  100% { transform: translate(0,0) rotate(-1deg); }
+}
+
+.bouteille.reorder-shake {
+  animation: bottle-shake 0.4s ease-in-out infinite;
+  cursor: grab;
+}
+
+.bouteille.reorder-shake:active {
+  cursor: grabbing;
+}
+
+/* Visual hint for empty slot during drag over */
+.bouteille.empty.drag-over {
+  outline: 2px dashed #722f37;
+  outline-offset: 2px;
+  background: #f9f3f4;
+}
+
+/* Visual hint for occupied slot during drag over (swap) */
+.bouteille.occupied.drag-over {
+  outline: 2px solid #722f37;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(114, 47, 55, 0.15);
+  background: linear-gradient(145deg, #fff, #f8f4f4);
+}
+
+/* Reorder mode action buttons */
+.reorder-actions {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: auto;
+  z-index: 2;
+}
+
+.reorder-btn {
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  line-height: 1;
+  cursor: pointer;
+  background: #ffffffcc;
+  backdrop-filter: blur(2px);
+  box-shadow: 0 0 0 1px #ccc, 0 2px 4px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: all 0.2s ease;
+}
+
+.reorder-btn:hover:not(:disabled) {
+  background: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 1px #722f37, 0 3px 6px rgba(114,47,55,0.25);
+}
+
+.reorder-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.reorder-btn.delete { color: #c41e3a; }
+.reorder-btn.delete:hover:not(:disabled) { background:#ffe8e8; }
+.reorder-btn.duplicate { color: #1b7d38; }
+.reorder-btn.duplicate:hover:not(:disabled) { background:#e8f5e8; }
+
+/* === Scan label loading overlay & spinner === */
+.scan-loading-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.78);
+  backdrop-filter: blur(2px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  z-index: 20;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  pointer-events: none;
+}
+
+.scan-spinner {
+  width: 46px;
+  height: 46px;
+  border: 6px solid #e3e3e3;
+  border-top-color: #722f37;
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.05);
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.scan-loading-text {
+  font-size: 0.9rem;
+  color: #722f37;
+  font-weight: 500;
+  letter-spacing: .5px;
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+}
+
+.scan-loading-text::after {
+  content: '…';
+  animation: dots 1.6s steps(4,end) infinite;
+}
+
+@keyframes dots {
+  0% { clip-path: inset(0 75% 0 0); }
+  25% { clip-path: inset(0 50% 0 0); }
+  50% { clip-path: inset(0 25% 0 0); }
+  75% { clip-path: inset(0 0 0 0); }
+  100% { clip-path: inset(0 75% 0 0); }
+}
