@@ -596,7 +596,7 @@ const CaveDetailPage: React.FC = () => {
       
            <p className="cave-description">{cave.description}</p>
            {calculatePrice(cave) > 0 &&
-          <p  className="cave-description"> Cave estimée à {new Intl.NumberFormat("fr-FR").format(calculatePrice(cave))} €</p>
+          <p  className="cave-description"> Cave estimée à <strong>{new Intl.NumberFormat("fr-FR").format(calculatePrice(cave))} €</strong></p>
           }
           </div>
           <div className="header-right">  <button

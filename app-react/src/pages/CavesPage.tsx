@@ -31,6 +31,16 @@ const CavesPage: React.FC = () => {
     }
   };
 
+  const nbBouteilles = (cave: CaveDto): number => {
+    let total = 0;
+    cave.casiers?.forEach(casier => {
+      casier.lignes?.forEach(ligne => {
+        total += ligne.bouteilles?.length || 0;
+      });
+    });
+    return total;
+  }
+
   const handleCreateSave = async (draft: CaveDto) => {
     setIsSaving(true);
     setCreateError(null);
@@ -121,6 +131,8 @@ const CavesPage: React.FC = () => {
                 <p>{cave.description}</p>
                 <div className="cave-stats">
                   <span>{cave.casiers?.length || 0} casiers</span>
+                  <br />
+                  <span>{nbBouteilles(cave)} bouteilles</span>
                 </div>
                 <div className="cave-actions">
                   <Link 

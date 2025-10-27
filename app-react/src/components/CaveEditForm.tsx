@@ -108,10 +108,6 @@ const CaveEditForm: React.FC<CaveEditFormProps> = ({
       newErrors.nom = 'Le nom de la cave est requis';
     }
 
-    if (!formData.description.trim()) {
-      newErrors.description = 'La description est requise';
-    }
-
     if (!formData.nombreLignesParCasier || formData.nombreLignesParCasier < 1 || formData.nombreLignesParCasier > 4) {
       newErrors.nombreLignesParCasier = 'Le nombre de lignes par casier doit être entre 1 et 4';
     }
@@ -159,7 +155,7 @@ const CaveEditForm: React.FC<CaveEditFormProps> = ({
           </div>
 
           <div className="form-group">
-            <label htmlFor="description">Description *</label>
+            <label htmlFor="description">Description</label>
             <textarea
               id="description"
               name="description"
