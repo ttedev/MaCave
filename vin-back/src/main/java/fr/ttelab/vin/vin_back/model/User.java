@@ -33,7 +33,7 @@ public class User {
     private List<Cave> caves = new ArrayList<>();
 
     @Column(name = "quotas_api")
-    private Integer quotasApi = 100;
+    private Integer quotasApi = 20;
     
     // Constructeurs
     public User() {}
