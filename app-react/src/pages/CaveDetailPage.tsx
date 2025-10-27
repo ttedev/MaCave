@@ -698,7 +698,7 @@ const CaveDetailPage: React.FC = () => {
                 </span>
               </button>
               <button
-                onClick={v => setIsReorderMode(!isReorderMode)}
+                onClick={() => setIsReorderMode(!isReorderMode)}
                 className="wine-btn wine-btn-add-casier"
                 disabled={isUpdating}
                 title="Reorganiser La Cave"
