@@ -49,6 +49,7 @@ public class WineController {
         newWine.setAppellation(wine.getAppellation());
         newWine.setAnnee(wine.getAnnee());
         newWine.setCouleur(wine.getCouleur());
+        newWine.setTaille(wine.getTaille());
         newWine.setPrix(wine.getPrix());
         newWine.setLigne(ligne);
         newWine.setPosition(wine.getPosition());

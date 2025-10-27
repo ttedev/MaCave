@@ -103,8 +103,8 @@ const WineEditForm: React.FC<WineEditFormProps> = ({
         appellation:  scanned.appellation || '',
         annee: scanned.annee || prev.annee,
         prix: scanned.prix || prev.prix,
-        taille: scanned.taille || '75',
-        couleur: scanned.couleur ||  'ROUGE'
+        taille:  '75',
+        couleur: 'ROUGE'  
       }));
     } catch (err) {
       console.error('Erreur scan', err);
