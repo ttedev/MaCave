@@ -99,12 +99,12 @@ const WineEditForm: React.FC<WineEditFormProps> = ({
       // Fusion: ne remplace que les champs vides ou par défaut
       setFormData(prev => ({
         ...prev,
-        chateau: prev.chateau || scanned.chateau || '',
-        appellation: prev.appellation || scanned.appellation || '',
-        annee: (prev.annee && prev.annee !== 0) ? prev.annee : scanned.annee || prev.annee,
-        prix: (prev.prix && prev.prix !== 0) ? prev.prix : scanned.prix || prev.prix,
-        taille: prev.taille || scanned.taille || '75',
-        couleur: prev.couleur || scanned.couleur || 'ROUGE'
+        chateau: scanned.chateau || '',
+        appellation:  scanned.appellation || '',
+        annee: scanned.annee || prev.annee,
+        prix: scanned.prix || prev.prix,
+        taille: scanned.taille || '75',
+        couleur: scanned.couleur ||  ''
       }));
     } catch (err) {
       console.error('Erreur scan', err);
