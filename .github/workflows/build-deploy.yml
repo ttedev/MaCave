@@ -68,8 +68,8 @@ jobs:
           target: ${{ secrets.DEPLOY_PATH }}
           overwrite: true
 
-      - name: (Optional) Restart remote service
-        if: success() && env.REMOTE_RESTART_CMD != ''
+      - name: Restart remote service
+        if: success()
         uses: appleboy/ssh-action@v1.1.0
         with:
           host: ${{ secrets.SSH_HOST }}
@@ -78,5 +78,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script: |
             cd ${{ secrets.COMMAND_PATH }}
+            mv app.jar app.jar.old
+            mv ${{ secrets.DEPLOY_PATH }}/vin-back/target/${{ env.JAR_NAME }} app.jar
             echo "Restarting service..."
             ${{ secrets.REMOTE_RESTART_CMD }}
