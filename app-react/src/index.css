@@ -439,6 +439,11 @@ body {
   max-width: 1400px;
 }
 
+.add-casier-section{
+  display: flex;
+  gap: 5px;
+}
+
 .casier-header {
   display: flex;
   justify-content: space-between;
@@ -446,6 +451,9 @@ body {
   margin-bottom: 1.5rem;
   padding-bottom: 0.75rem;
   border-bottom: 2px solid #f0f0f0;
+}
+.caves-content .caves-header{
+  margin: auto 5rem;
 }
 
 .casier-header h3 {
@@ -1158,11 +1166,6 @@ body {
     text-align: center;
   }
 
-  .header-left,
-  .header-center,
-  .header-right {
-    width: 100%;
-  }
 
   .header-center h1 {
     font-size: 1.6rem;
@@ -1177,6 +1180,11 @@ body {
     gap: 1rem;
     text-align: center;
   }
+
+  .caves-content .caves-header{
+    margin: auto 0.1rem;
+  }
+
   
   .ligne-horizontal {
     gap: 0.8rem;

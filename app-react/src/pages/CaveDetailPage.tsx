@@ -586,7 +586,7 @@ const CaveDetailPage: React.FC = () => {
               <div key={casier.id} className="casier-section">
                 <div className="casier-visual">
 
-                                    {isEmpty && (
+                                    {isEmpty && isReorderMode && (
                     <button
                       onClick={() => handleDeleteCasier(casier)}
                       className="wine-btn wine-btn-delete casier-delete-btn"
@@ -695,6 +695,17 @@ const CaveDetailPage: React.FC = () => {
                 <span className="btn-icon">➕</span>
                 <span className="btn-text">
                   {isUpdating ? 'Ajout...' : 'Ajouter un casier'}
+                </span>
+              </button>
+              <button
+                onClick={v => setIsReorderMode(!isReorderMode)}
+                className="wine-btn wine-btn-add-casier"
+                disabled={isUpdating}
+                title="Reorganiser La Cave"
+              >
+                <span className="btn-icon">🔀</span>
+                <span className="btn-text">
+                   {isReorderMode ? 'Reorg...' : 'Reorganiser la cave'}
                 </span>
               </button>
             </div>
